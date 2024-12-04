@@ -6,15 +6,18 @@
  */
 
 import { NavigationContainer } from "@react-navigation/native";
-import MainNavigation from "navigation/MainNavigation";
+import ThemeProvider from "contexts/Theme";
+import BottomTabs from "navigation/BottomTabsNavigation";
 import React from "react";
 
 function App(): React.JSX.Element {
   // const isDarkMode = useColorScheme() === 'dark';
   return (
-    <NavigationContainer>
-      <MainNavigation />
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <BottomTabs />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 

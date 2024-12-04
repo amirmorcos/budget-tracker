@@ -37,7 +37,7 @@ export type AppFonts = {
   };
 };
 
-type Colors = {
+export type Colors = {
   DARK: {
     25: string;
     50: string;
@@ -91,4 +91,14 @@ type Colors = {
 export type AppColors = {
   dark: Colors;
   light: Colors;
+};
+
+export type FontFamily = {
+  black: string;
+  blackItalic: string;
+  bold: string;
+  boldItalic: string;
+  regular: string;
+  semiBold: string;
+  medium: string;
 };

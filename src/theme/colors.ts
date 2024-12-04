@@ -1,15 +1,15 @@
 import { AppColors } from "./types";
 
-const colors: AppColors = {
+const ThemeColors: AppColors = {
   dark: {
     DARK: {
       25: "#7A7E80",
       50: "464A4D",
-      75: "#000000",
+      75: "#161719",
       100: "#000000",
     },
     LIGHT: {
-      20: "#E3E5E5",
+      20: "#91919F",
       40: "#F2F4F5",
       60: "#F7F9FA",
       80: "#FBFBFB",
@@ -55,11 +55,11 @@ const colors: AppColors = {
     DARK: {
       25: "#7A7E80",
       50: "464A4D",
-      75: "#000000",
+      75: "#161719",
       100: "#000000",
     },
     LIGHT: {
-      20: "#E3E5E5",
+      20: "#91919F",
       40: "#F2F4F5",
       60: "#F7F9FA",
       80: "#FBFBFB",
@@ -103,4 +103,4 @@ const colors: AppColors = {
   },
 };
 
-export default colors;
+export default ThemeColors;

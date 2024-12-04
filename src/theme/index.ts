@@ -1,4 +1,6 @@
-import AppFonts, { fonts } from "./fonts";
-import Colors from "./colors";
+import AppInterFonts, { fonts } from "./fonts";
+import ThemeColors from "./colors";
+import { Colors, FontFamily } from "./types";
 
-export { AppFonts, fonts, Colors };
+export { AppInterFonts, fonts, ThemeColors };
+export type { Colors, FontFamily };
