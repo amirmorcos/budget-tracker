@@ -13,4 +13,12 @@ export default (colors: Colors) =>
     title: {
       color: colors.VIOLET[100],
     },
+    borderedButton: {
+      borderColor: colors.LIGHT[20],
+      borderWidth: 1,
+      backgroundColor: undefined,
+    },
+    borderedTitle: {
+      color: colors.DARK[100],
+    },
   });

@@ -9,10 +9,12 @@ const AppText = ({
   fontFamily,
   text,
   overrideTextStyle,
+  ...props
 }: AppTextProps) => {
   const { currentTheme } = useThemeContext();
   return (
     <Text
+      {...props}
       style={[
         {
           ...AppInterFonts[fontSize ?? "regular1"],
