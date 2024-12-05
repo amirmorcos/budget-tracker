@@ -5,4 +5,6 @@ export type ScreenLayoutProps = {
   navigationTitle?: string;
   containerStyle?: StyleProp<ViewStyle>;
   enableScroll?: boolean;
+  mainContainerStyle?: StyleProp<ViewStyle>;
+  navigationColor?: string;
 };

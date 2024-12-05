@@ -11,6 +11,7 @@ import BillIcon from "./bill";
 import TransportationIcon from "./transportation";
 import ShoppingIcon from "./shopping";
 import FoodIcon from "./food";
+import TransactionsIcon from "./transactions";
 
 export {
   HomeIcon,
@@ -26,4 +27,5 @@ export {
   BillIcon,
   SalaryIcon,
   FoodIcon,
+  TransactionsIcon,
 };

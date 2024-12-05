@@ -18,6 +18,7 @@ export default (colors: Colors) =>
     },
     description: {
       color: colors.LIGHT[20],
+      width: s(90),
     },
     amount: {
       textAlign: "right",

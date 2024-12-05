@@ -10,6 +10,8 @@ const ScreenLayout = ({
   containerStyle,
   navigationTitle,
   enableScroll,
+  mainContainerStyle,
+  navigationColor,
 }: ScreenLayoutProps) => {
   const { currentTheme } = useThemeContext();
 
@@ -18,8 +20,10 @@ const ScreenLayout = ({
   const ContentView = enableScroll ? ScrollView : View;
 
   return (
-    <SafeAreaView style={themedStyles.container}>
-      {navigationTitle && <NavigationHeader title={navigationTitle} />}
+    <SafeAreaView style={[themedStyles.container, mainContainerStyle]}>
+      {navigationTitle && (
+        <NavigationHeader color={navigationColor} title={navigationTitle} />
+      )}
       <ContentView
         bounces={false}
         style={[themedStyles.content, containerStyle]}

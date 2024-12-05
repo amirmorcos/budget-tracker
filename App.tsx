@@ -5,19 +5,24 @@
  * @format
  */
 
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { NavigationContainer } from "@react-navigation/native";
 import ThemeProvider from "contexts/Theme";
 import BottomTabs from "navigation/BottomTabsNavigation";
 import React from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 function App(): React.JSX.Element {
-  // const isDarkMode = useColorScheme() === 'dark';
   return (
-    <ThemeProvider>
-      <NavigationContainer>
-        <BottomTabs />
-      </NavigationContainer>
-    </ThemeProvider>
+    <GestureHandlerRootView>
+      <ThemeProvider>
+        <BottomSheetModalProvider>
+          <NavigationContainer>
+            <BottomTabs />
+          </NavigationContainer>
+        </BottomSheetModalProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
 
