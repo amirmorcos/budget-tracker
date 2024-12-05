@@ -10,8 +10,9 @@ const ActionList = ({ items, overrideContainerStyle }: ActionListProps) => {
   const themedStyles = styles(currentTheme);
   return (
     <Card overrideContainerStyle={overrideContainerStyle}>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <TouchableOpacity
+          key={`action-list${index}`}
           onPress={item.onPress}
           style={themedStyles.listItemContainer}
         >

@@ -1,8 +1,16 @@
+import ScreenLayout from "organisms/ScreenLayout";
 import React from "react";
-import { View } from "react-native";
+import { AccountBalance, RecentTransactions } from "./components";
 
 const HomeScreen = () => {
-  return <View />;
+  const onViewAll = () => {};
+
+  return (
+    <ScreenLayout enableScroll>
+      <AccountBalance />
+      <RecentTransactions onPress={onViewAll} />
+    </ScreenLayout>
+  );
 };
 
 export default HomeScreen;

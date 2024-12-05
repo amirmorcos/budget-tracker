@@ -20,6 +20,7 @@ module.exports = {
           assets: "./assets",
           contexts: "./src/contexts",
           theme: "./src/theme",
+          utils: "./src/utils",
         },
       },
     ],
