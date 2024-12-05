@@ -6,4 +6,11 @@ export type ProfileStackParams = {
   Theme: undefined;
 };
 
+export type TransactionsStackParams = {
+  Transactions: undefined;
+  TransactionDetail: undefined;
+};
+
 export type ProfileScreenProps = NativeStackNavigationProp<ProfileStackParams>;
+export type TransactionProps =
+  NativeStackNavigationProp<TransactionsStackParams>;

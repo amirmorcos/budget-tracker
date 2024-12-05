@@ -1,6 +1,6 @@
 import { StyleProp, ViewStyle } from "react-native";
 
-export type TransactionItemProps = {
-  onPress: () => void;
+export type BottomSheetProps = {
+  children: React.ReactNode;
   overrideContainerStyle?: StyleProp<ViewStyle>;
 };

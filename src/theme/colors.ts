@@ -10,14 +10,14 @@ const ThemeColors: AppColors = {
     },
     LIGHT: {
       20: "#E3E5E5",
-      40: "#F2F4F5",
+      40: "#161719",
       60: "#000000",
       80: "#FBFBFB",
       100: "#464A4D",
     },
     VIOLET: {
       20: "#EEE5FF",
-      40: "#D3BDFF",
+      40: "#161719",
       60: "#B18AFF",
       80: "#8F57FF",
       100: "#D3BDFF",
@@ -37,7 +37,7 @@ const ThemeColors: AppColors = {
       100: "#00A86B",
     },
     YELLOW: {
-      20: "#E3E5E5",
+      20: "#FCDDA1",
       40: "#F2F4F5",
       60: "#F7F9FA",
       80: "#FBFBFB",

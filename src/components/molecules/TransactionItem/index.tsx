@@ -1,13 +1,16 @@
 import { useThemeContext } from "contexts/Theme";
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import styles from "./styles";
 import { AppText } from "atoms/index";
 import { TransactionItemProps } from "./types";
 import { getTransactionIcon } from "utils/transaction";
 import { TransactionType } from "models/Transaction";
 
-const TransactionItem = ({ overrideContainerStyle }: TransactionItemProps) => {
+const TransactionItem = ({
+  overrideContainerStyle,
+  onPress,
+}: TransactionItemProps) => {
   const { currentTheme } = useThemeContext();
   const themedStyles = styles(currentTheme);
 
@@ -17,7 +20,10 @@ const TransactionItem = ({ overrideContainerStyle }: TransactionItemProps) => {
   );
 
   return (
-    <View style={[themedStyles.container, overrideContainerStyle]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[themedStyles.container, overrideContainerStyle]}
+    >
       <View style={themedStyles.infoContainer}>
         <View
           style={[
@@ -25,11 +31,12 @@ const TransactionItem = ({ overrideContainerStyle }: TransactionItemProps) => {
             { backgroundColor: TransactionInfo.color },
           ]}
         >
-          {<TransactionInfo.icon />}
+          <TransactionInfo.icon />
         </View>
         <View style={themedStyles.gap}>
           <AppText text="Shopping" />
           <AppText
+            numberOfLines={1}
             text="Buy text"
             fontSize="regular3"
             overrideTextStyle={themedStyles.description}
@@ -49,7 +56,7 @@ const TransactionItem = ({ overrideContainerStyle }: TransactionItemProps) => {
           overrideTextStyle={themedStyles.time}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

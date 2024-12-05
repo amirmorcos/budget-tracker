@@ -1,9 +1,10 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeScreen } from "screens/index";
-import { HomeIcon, UserIcon } from "assets/images/svg";
+import { HomeIcon, TransactionsIcon, UserIcon } from "assets/images/svg";
 import { useThemeContext } from "contexts/Theme";
 import ProfileNavigation from "./ProfileNavigation";
+import TransactionNavigation from "./TransactionNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +25,16 @@ const BottomTabs = () => {
         }}
         name="Home"
         component={HomeScreen}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Transactions",
+          tabBarIcon: ({ color, size }) => (
+            <TransactionsIcon fontSize={size} fill={color} />
+          ),
+        }}
+        name="TransactionStack"
+        component={TransactionNavigation}
       />
       <Tab.Screen
         name="Profile"

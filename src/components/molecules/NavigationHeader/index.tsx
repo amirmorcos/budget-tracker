@@ -7,7 +7,7 @@ import { View } from "react-native";
 import styles from "./styles";
 import { NavigationHeaderProps } from "./types";
 
-const NavigationHeader = ({ title }: NavigationHeaderProps) => {
+const NavigationHeader = ({ title, color }: NavigationHeaderProps) => {
   const navigation = useNavigation();
   const { currentTheme } = useThemeContext();
   const themedStyles = styles(currentTheme);
@@ -16,11 +16,16 @@ const NavigationHeader = ({ title }: NavigationHeaderProps) => {
       <View style={themedStyles.container}>
         <View style={themedStyles.icon}>
           <BackArrowIcon
-            fill={currentTheme.DARK[75]}
+            fill={color ?? currentTheme.DARK[75]}
             onPress={navigation.goBack}
           />
         </View>
-        <AppText fontFamily="semiBold" fontSize="title3" text={title} />
+        <AppText
+          overrideTextStyle={{ color: color }}
+          fontFamily="semiBold"
+          fontSize="title3"
+          text={title}
+        />
       </View>
       <View style={themedStyles.divider} />
     </View>
