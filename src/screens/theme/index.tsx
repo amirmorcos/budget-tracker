@@ -6,13 +6,17 @@ import ThemeColors from "theme/colors";
 import { useTheme } from "hooks/useTheme";
 
 const ThemeScreen = () => {
-  const { onChangeTheme, currentTheme: themeContext } = useThemeContext();
+  const {
+    onChangeTheme,
+    currentTheme: themeContext,
+    selectedTheme,
+  } = useThemeContext();
   const { currentTheme, newSelectedTheme } = useTheme();
 
   return (
     <ScreenLayout navigationTitle="Theme">
       <ThemeItem
-        isSelected
+        isSelected={selectedTheme == SelectedTheme.LIGHT}
         title="Light"
         overrideContainerStyle={{
           marginBottom: 30,
@@ -22,7 +26,7 @@ const ThemeScreen = () => {
         }}
       />
       <ThemeItem
-        isSelected
+        isSelected={selectedTheme == SelectedTheme.DARK}
         title="Dark"
         onPress={() => {
           onChangeTheme(ThemeColors.dark, SelectedTheme.DARK);
@@ -32,8 +36,8 @@ const ThemeScreen = () => {
         }}
       />
       <ThemeItem
-        isSelected
         title="Use device theme"
+        isSelected={selectedTheme == SelectedTheme.SYSTEM}
         onPress={() => {
           onChangeTheme(currentTheme, SelectedTheme.SYSTEM);
         }}

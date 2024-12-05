@@ -20,7 +20,7 @@ const ThemeColors: AppColors = {
       40: "#D3BDFF",
       60: "#B18AFF",
       80: "#8F57FF",
-      100: "#F2F4F5",
+      100: "#D3BDFF",
     },
     RED: {
       20: "#FDD5D7",
@@ -62,7 +62,7 @@ const ThemeColors: AppColors = {
       20: "#91919F",
       40: "#F2F4F5",
       60: "#F7F9FA",
-      80: "#FBFBFB",
+      80: "#FCFCFC",
       100: "#FFFFFF",
     },
     VIOLET: {
@@ -87,11 +87,11 @@ const ThemeColors: AppColors = {
       100: "#00A86B",
     },
     YELLOW: {
-      20: "#E3E5E5",
-      40: "#F2F4F5",
-      60: "#F7F9FA",
-      80: "#FBFBFB",
-      100: "#FFFFFF",
+      20: "#FCEED4",
+      40: "#FCDDA1",
+      60: "#FCCC6F",
+      80: "#FCBB3C",
+      100: "#FCAC12",
     },
     BLUE: {
       20: "#BDDCFF",
