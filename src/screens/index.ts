@@ -5,6 +5,7 @@ import ThemeScreen from "./theme";
 import TransactionsScreen from "./transactions";
 import TransactionDetails from "./transactionDetails";
 import AddTransaction from "./addTransaction";
+import CategoriesScreen from "./categories";
 
 export {
   HomeScreen,
@@ -14,4 +15,5 @@ export {
   TransactionsScreen,
   TransactionDetails,
   AddTransaction,
+  CategoriesScreen,
 };
