@@ -6,4 +6,6 @@ export type ButtonProps = {
   overrideContainerStyle?: StyleProp<ViewStyle>;
   overrideTextStyle?: StyleProp<TextStyle>;
   type?: "border" | "normal" | "rounded";
+  disabled?: boolean;
+  isLoading?: boolean;
 };

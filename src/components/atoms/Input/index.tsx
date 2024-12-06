@@ -1,27 +1,35 @@
 import { useThemeContext } from "contexts/Theme";
 import React from "react";
 import { TextInput, View } from "react-native";
+import styles from "./styles";
+import { InputProps } from "./types";
+import AppText from "atoms/AppText";
 
-const Input = () => {
+const Input = ({
+  overrideContainerStyle,
+  placeholderTextColor,
+  errorMessage,
+  ...props
+}: InputProps) => {
   const { currentTheme } = useThemeContext();
+  const themedStyles = styles(currentTheme);
   return (
-    <View
-      style={{
-        borderWidth: 1,
-        paddingVertical: 14,
-        borderRadius: 16,
-        borderColor: currentTheme.LIGHT[40],
-        marginVertical: 10,
-        paddingHorizontal: 12,
-        // b: currentTheme.LIGHT[100],
-      }}
-    >
-      <TextInput
-        maxLength={4}
-        keyboardType="decimal-pad"
-        placeholder="Description"
-        placeholderTextColor={currentTheme.LIGHT[20]}
-      />
+    <View>
+      <View style={[themedStyles.container, overrideContainerStyle]}>
+        <TextInput
+          {...props}
+          placeholderTextColor={placeholderTextColor ?? currentTheme.LIGHT[20]}
+        />
+      </View>
+      {errorMessage && (
+        <AppText
+          text={errorMessage}
+          fontSize="small"
+          overrideTextStyle={{
+            color: currentTheme.RED[100],
+          }}
+        />
+      )}
     </View>
   );
 };

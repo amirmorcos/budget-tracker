@@ -33,4 +33,7 @@ export default (colors: Colors) =>
     borderedTitle: {
       color: colors.DARK[100],
     },
+    disabled: {
+      backgroundColor: colors.LIGHT[20],
+    },
   });

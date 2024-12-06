@@ -1,5 +1,4 @@
 import { useRoute } from "@react-navigation/native";
-import AppText from "atoms/AppText";
 import { useThemeContext } from "contexts/Theme";
 import { AddTransactionRouteProp } from "navigation/types";
 import ScreenLayout from "organisms/ScreenLayout";
@@ -17,6 +16,7 @@ const AddTransaction = () => {
 
   return (
     <ScreenLayout
+      navigationColor={currentTheme.LIGHT[100]}
       navigationTitle={type === FilterOption.EXPENSES ? "Expense" : "Income"}
       mainContainerStyle={{
         backgroundColor:

@@ -7,4 +7,7 @@ export default (colors: Colors) =>
     card: {
       marginTop: vs(20),
     },
+    button: {
+      marginTop: vs(20),
+    },
   });
