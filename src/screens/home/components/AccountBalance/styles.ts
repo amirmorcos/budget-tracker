@@ -37,6 +37,7 @@ export default (colors: Colors) =>
       color: colors.LIGHT[100],
       fontSize: ms(22),
       lineHeight: ms(22),
+      width: s(80),
     },
     gapContainer: {
       flexDirection: "row",

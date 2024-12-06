@@ -6,13 +6,16 @@ import React from "react";
 import { View } from "react-native";
 import styles from "./styles";
 import { NavigationHeaderProps } from "./types";
+import { hasNotch } from "react-native-device-info";
+import { vs } from "react-native-size-matters/extend";
 
 const NavigationHeader = ({ title, color }: NavigationHeaderProps) => {
   const navigation = useNavigation();
   const { currentTheme } = useThemeContext();
   const themedStyles = styles(currentTheme);
+  const top = hasNotch() ? 0 : vs(20);
   return (
-    <View>
+    <View style={{ marginTop: top }}>
       <View style={themedStyles.container}>
         <View style={themedStyles.icon}>
           <BackArrowIcon

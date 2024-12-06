@@ -4,9 +4,12 @@ import { useThemeContext } from "contexts/Theme";
 import React from "react";
 import { View } from "react-native";
 import styles from "./styles";
+import { useAccount } from "hooks/useAccount";
+import { formatTransactionAmount } from "utils/transaction";
 
 const AccountBalance = () => {
   const { currentTheme } = useThemeContext();
+  const { accountBalance, expenses, income } = useAccount();
   const themedStyles = styles(currentTheme);
 
   return (
@@ -19,7 +22,7 @@ const AccountBalance = () => {
       <AppText
         fontFamily="semiBold"
         overrideTextStyle={themedStyles.balance}
-        text="$9400"
+        text={formatTransactionAmount(accountBalance)}
       />
 
       <View style={themedStyles.rowContainer}>
@@ -37,7 +40,8 @@ const AccountBalance = () => {
               <AppText
                 fontFamily="semiBold"
                 overrideTextStyle={themedStyles.amount}
-                text="$5000"
+                text={formatTransactionAmount(income)}
+                numberOfLines={1}
               />
             </View>
           </View>
@@ -54,7 +58,11 @@ const AccountBalance = () => {
                 overrideTextStyle={themedStyles.title}
                 text="Expenses"
               />
-              <AppText overrideTextStyle={themedStyles.amount} text="$5000" />
+              <AppText
+                overrideTextStyle={themedStyles.amount}
+                text={formatTransactionAmount(expenses)}
+                numberOfLines={1}
+              />
             </View>
           </View>
         </Card>

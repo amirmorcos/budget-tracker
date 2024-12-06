@@ -26,7 +26,8 @@ const ScreenLayout = ({
       )}
       <ContentView
         bounces={false}
-        style={[themedStyles.content, containerStyle]}
+        style={[themedStyles.content, !enableScroll && containerStyle]}
+        contentContainerStyle={containerStyle}
       >
         {children}
       </ContentView>

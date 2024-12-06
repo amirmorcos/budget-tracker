@@ -13,4 +13,7 @@ export default (colors: Colors) =>
     viewAll: {
       marginTop: vs(20),
     },
+    item: {
+      marginTop: vs(10),
+    },
   });

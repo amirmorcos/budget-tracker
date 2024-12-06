@@ -11,17 +11,22 @@ import ThemeProvider from "contexts/Theme";
 import BottomTabs from "navigation/BottomTabsNavigation";
 import React from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+export const queryClient = new QueryClient();
 
 function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView>
-      <ThemeProvider>
-        <BottomSheetModalProvider>
-          <NavigationContainer>
-            <BottomTabs />
-          </NavigationContainer>
-        </BottomSheetModalProvider>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider>
+          <BottomSheetModalProvider>
+            <NavigationContainer>
+              <BottomTabs />
+            </NavigationContainer>
+          </BottomSheetModalProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
     </GestureHandlerRootView>
   );
 }

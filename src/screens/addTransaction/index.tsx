@@ -26,7 +26,7 @@ const AddTransaction = () => {
       }}
       containerStyle={themedStyles.container}
     >
-      <AddTransactionForm />
+      <AddTransactionForm formType={type} />
     </ScreenLayout>
   );
 };

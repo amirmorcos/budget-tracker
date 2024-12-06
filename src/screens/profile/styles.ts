@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { s } from "react-native-size-matters/extend";
+import { ms, s } from "react-native-size-matters/extend";
 import { Colors } from "theme/types";
 
 export default (colors: Colors) =>
@@ -25,5 +25,6 @@ export default (colors: Colors) =>
     },
     name: {
       color: colors.DARK[75],
+      lineHeight: ms(25),
     },
   });
