@@ -13,12 +13,6 @@ export default (colors: Colors) =>
     },
     applyButton: {
       marginTop: vs(10),
-      height: vs(56),
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-      borderRadius: 16,
-      backgroundColor: colors.VIOLET[100],
     },
     applyButtonText: {
       color: colors.LIGHT[80],

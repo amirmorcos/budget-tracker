@@ -4,6 +4,7 @@ import ThemeItem from "./components/ThemeItem";
 import { SelectedTheme, useThemeContext } from "contexts/Theme";
 import ThemeColors from "theme/colors";
 import { useTheme } from "hooks/useTheme";
+import styles from "./styles";
 
 const ThemeScreen = () => {
   const {
@@ -18,9 +19,7 @@ const ThemeScreen = () => {
       <ThemeItem
         isSelected={selectedTheme == SelectedTheme.LIGHT}
         title="Light"
-        overrideContainerStyle={{
-          marginBottom: 30,
-        }}
+        overrideContainerStyle={styles.margin}
         onPress={() => {
           onChangeTheme(ThemeColors.light, SelectedTheme.LIGHT);
         }}
@@ -31,16 +30,7 @@ const ThemeScreen = () => {
         onPress={() => {
           onChangeTheme(ThemeColors.dark, SelectedTheme.DARK);
         }}
-        overrideContainerStyle={{
-          marginBottom: 30,
-        }}
-      />
-      <ThemeItem
-        title="Use device theme"
-        isSelected={selectedTheme == SelectedTheme.SYSTEM}
-        onPress={() => {
-          onChangeTheme(currentTheme, SelectedTheme.SYSTEM);
-        }}
+        overrideContainerStyle={styles.margin}
       />
     </ScreenLayout>
   );

@@ -13,9 +13,17 @@ import { CategoryType } from "models/Category";
 import styles from "./styles";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { TransactionFormData, transactionSchema } from "./types";
+import {
+  AddTransactionsFormProps,
+  TransactionFormData,
+  transactionSchema,
+} from "./types";
+import { useTransactions } from "hooks/useTransaction";
+import { useNavigation } from "@react-navigation/native";
+import { FilterOption } from "utils/transaction";
 
-const AddTransactionForm = () => {
+const AddTransactionForm = ({ formType }: AddTransactionsFormProps) => {
+  const navigation = useNavigation();
   const { currentTheme } = useThemeContext();
   const { handleSubmit, control, formState } = useForm<TransactionFormData>({
     resolver: yupResolver(transactionSchema),
@@ -24,12 +32,24 @@ const AddTransactionForm = () => {
       description: "",
     },
   });
+  const { addNewTransaction, newTransactionLoading } = useTransactions();
 
   const errors = formState.errors;
 
   const themedStyles = styles(currentTheme);
 
-  const onSubmit = (data: TransactionFormData) => console.log(data);
+  const onSubmit = async (data: TransactionFormData) => {
+    Keyboard.dismiss();
+    const response = await addNewTransaction({
+      category: data.category,
+      amount: parseInt(data.amount),
+      description: data.description,
+      type: formType,
+    });
+    if (response.status === 201) {
+      navigation.goBack();
+    }
+  };
 
   return (
     <TouchableOpacity activeOpacity={1} onPress={() => Keyboard.dismiss()}>
@@ -41,18 +61,34 @@ const AddTransactionForm = () => {
           color: currentTheme.LIGHT[80],
         }}
       />
-      <AmountInput />
+      <Controller
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <AmountInput
+            value={value}
+            onChangeText={onChange}
+            placeholder="0"
+            errorMessage={errors.amount?.message}
+          />
+        )}
+        name="amount"
+      />
       <Card overrideContainerStyle={themedStyles.card}>
         <Controller
           control={control}
-          render={({ field: { onChange } }) => (
+          render={({ field: { onChange, value } }) => (
             <Dropdown
+              value={value}
               onChangeValue={onChange}
               placeholder="Category"
-              items={Object.values(CategoryType).map((item) => ({
-                label: item,
-                value: item,
-              }))}
+              items={
+                formType === FilterOption.INCOME
+                  ? [{ label: CategoryType.SALARY, value: CategoryType.SALARY }]
+                  : Object.values(CategoryType).map((value) => ({
+                      label: value,
+                      value: value,
+                    }))
+              }
               errorMessage={errors.category?.message}
             />
           )}
@@ -73,6 +109,7 @@ const AddTransactionForm = () => {
           name="description"
         />
         <Button
+          isLoading={newTransactionLoading}
           type="normal"
           title="Continue"
           onPress={handleSubmit(onSubmit)}

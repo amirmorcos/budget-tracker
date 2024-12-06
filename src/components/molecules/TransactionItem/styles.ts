@@ -26,6 +26,7 @@ export default (colors: Colors) =>
     },
     time: {
       color: colors.LIGHT[20],
+      textAlign: "right",
     },
     iconContainer: {
       backgroundColor: colors.YELLOW[20],

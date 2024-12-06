@@ -14,6 +14,7 @@ import FoodIcon from "./food";
 import TransactionsIcon from "./transactions";
 import CloseIcon from "./close";
 import ArrowDown from "./arrowDown";
+import NoTransactions from "./noTransactions";
 
 export {
   HomeIcon,
@@ -32,4 +33,5 @@ export {
   TransactionsIcon,
   CloseIcon,
   ArrowDown,
+  NoTransactions,
 };

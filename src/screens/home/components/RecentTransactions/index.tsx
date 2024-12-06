@@ -1,13 +1,18 @@
+import Placeholder from "atoms/Placeholder";
 import { useThemeContext } from "contexts/Theme";
+import { useTransactions } from "hooks/useTransaction";
+import TransactionItem from "molecules/TransactionItem";
+import { SectionHeader } from "molecules/index";
 import React from "react";
 import { View } from "react-native";
 import styles from "./styles";
 import { RecentTransactionsProps } from "./types";
-import TransactionItem from "molecules/TransactionItem";
-import { SectionHeader } from "molecules/index";
+import EmptyTransactions from "atoms/EmptyTransactions";
 
 const RecentTransactions = ({ onPress }: RecentTransactionsProps) => {
   const { currentTheme } = useThemeContext();
+  const { recentTransactions, isLoading } = useTransactions();
+
   const themedStyles = styles(currentTheme);
 
   return (
@@ -18,22 +23,20 @@ const RecentTransactions = ({ onPress }: RecentTransactionsProps) => {
         onPress={onPress}
         overrideContainerStyle={themedStyles.viewAll}
       />
+      {isLoading && <Placeholder />}
 
-      <TransactionItem
-        overrideContainerStyle={{
-          marginTop: 10,
-        }}
-      />
-      <TransactionItem
-        overrideContainerStyle={{
-          marginTop: 10,
-        }}
-      />
-      <TransactionItem
-        overrideContainerStyle={{
-          marginTop: 10,
-        }}
-      />
+      {!isLoading &&
+        recentTransactions.length > 0 &&
+        recentTransactions.map((item) => (
+          <TransactionItem
+            key={item.id}
+            item={item}
+            disabled
+            overrideContainerStyle={themedStyles.item}
+          />
+        ))}
+
+      {!isLoading && recentTransactions.length === 0 && <EmptyTransactions />}
     </View>
   );
 };

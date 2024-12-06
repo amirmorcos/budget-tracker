@@ -1,26 +1,30 @@
+import { AppText } from "atoms/index";
 import { useThemeContext } from "contexts/Theme";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
+import {
+  FilterOption,
+  formatTransactionAmount,
+  formatTransactionDate,
+  getTransactionInfo,
+} from "utils/transaction";
 import styles from "./styles";
-import { AppText } from "atoms/index";
 import { TransactionItemProps } from "./types";
-import { getTransactionIcon } from "utils/transaction";
-import { TransactionType } from "models/Transaction";
 
 const TransactionItem = ({
   overrideContainerStyle,
   onPress,
+  item,
+  disabled,
 }: TransactionItemProps) => {
   const { currentTheme } = useThemeContext();
   const themedStyles = styles(currentTheme);
 
-  const TransactionInfo = getTransactionIcon(
-    TransactionType.SHOPPING,
-    currentTheme
-  );
+  const TransactionInfo = getTransactionInfo(item.category, currentTheme);
 
   return (
     <TouchableOpacity
+      disabled={disabled}
       onPress={onPress}
       style={[themedStyles.container, overrideContainerStyle]}
     >
@@ -34,10 +38,10 @@ const TransactionItem = ({
           <TransactionInfo.icon />
         </View>
         <View style={themedStyles.gap}>
-          <AppText text="Shopping" />
+          <AppText text={TransactionInfo.text} />
           <AppText
             numberOfLines={1}
-            text="Buy text"
+            text={item.description}
             fontSize="regular3"
             overrideTextStyle={themedStyles.description}
           />
@@ -47,11 +51,21 @@ const TransactionItem = ({
       <View style={themedStyles.gap}>
         <AppText
           fontFamily="semiBold"
-          text="-$125"
-          overrideTextStyle={themedStyles.amount}
+          text={`${
+            item.type === FilterOption.EXPENSES ? "-" : "+"
+          }${formatTransactionAmount(item.amount)}`}
+          overrideTextStyle={[
+            themedStyles.amount,
+            {
+              color:
+                item.type === FilterOption.EXPENSES
+                  ? currentTheme.RED[100]
+                  : currentTheme.GREEN[100],
+            },
+          ]}
         />
         <AppText
-          text="10:00 AM"
+          text={formatTransactionDate(item.createdAt)}
           fontSize="regular3"
           overrideTextStyle={themedStyles.time}
         />

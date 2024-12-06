@@ -13,4 +13,5 @@ export type DropdownProps = {
   placeholder: string;
   overrideContainerStyle?: StyleProp<ViewStyle>;
   errorMessage?: string;
+  value: string;
 };

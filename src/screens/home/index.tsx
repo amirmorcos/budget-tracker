@@ -1,15 +1,23 @@
 import ScreenLayout from "organisms/ScreenLayout";
 import React from "react";
-import { AccountBalance, RecentTransactions } from "./components";
+import {
+  AccountBalance,
+  RecentTransactions,
+  SpendFrequency,
+} from "./components";
 import AddButton from "./components/AddButton";
 import { useNavigation } from "@react-navigation/native";
-import { HomeProps, TransactionProps } from "navigation/types";
+import { CombinedProps } from "navigation/types";
 import { FilterOption } from "utils/transaction";
+import PieChart from "react-native-pie-chart";
+import SectionHeader from "molecules/SectionHeader";
 
 const HomeScreen = () => {
-  const { navigate } = useNavigation<HomeProps & TransactionProps>();
+  const { navigate } = useNavigation<CombinedProps>();
 
-  const onViewAll = () => {};
+  const onViewAll = () => {
+    navigate("TransactionStack");
+  };
 
   const onAdd = (type: FilterOption.EXPENSES | FilterOption.INCOME) => {
     navigate("AddTransaction", {
@@ -19,8 +27,9 @@ const HomeScreen = () => {
 
   return (
     <>
-      <ScreenLayout enableScroll>
+      <ScreenLayout enableScroll containerStyle={{ paddingBottom: 80 }}>
         <AccountBalance />
+        <SpendFrequency />
         <RecentTransactions onPress={onViewAll} />
       </ScreenLayout>
       <AddButton onPress={onAdd} />

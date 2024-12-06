@@ -39,9 +39,11 @@ const Dropdown = ({
         )}
         items={items}
         setOpen={setOpen}
+        onChangeValue={(value) => {
+          onChangeValue(value ?? "");
+        }}
         setValue={(value) => {
           setValue(value);
-          onChangeValue(value);
         }}
         placeholder={placeholder}
         placeholderStyle={themedStyles.placeholder}

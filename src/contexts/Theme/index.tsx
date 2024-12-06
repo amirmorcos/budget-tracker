@@ -1,11 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
-import { useColorScheme } from "react-native";
 import { Colors, ThemeColors } from "theme/index";
 
 export enum SelectedTheme {
   LIGHT = "Light",
   DARK = "Dark",
-  SYSTEM = "Use device theme",
 }
 
 type ThemeContextProps = {
@@ -23,12 +21,8 @@ const ThemeContext = createContext<ThemeContextProps>({
 export const useThemeContext = () => useContext(ThemeContext);
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const isDarkMode = useColorScheme() === "dark";
-
-  const [theme, setTheme] = useState(
-    isDarkMode ? ThemeColors.dark : ThemeColors.light
-  );
-  const [themeSelection, setThemeSelection] = useState(SelectedTheme.SYSTEM);
+  const [theme, setTheme] = useState(ThemeColors.light);
+  const [themeSelection, setThemeSelection] = useState(SelectedTheme.LIGHT);
 
   const onChangeTheme = (newTheme: Colors, newSelectedTheme: SelectedTheme) => {
     setTheme(newTheme);
