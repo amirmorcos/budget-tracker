@@ -12,7 +12,7 @@ const ThemeColors: AppColors = {
       20: "#E3E5E5",
       40: "#161719",
       60: "#000000",
-      80: "#FBFBFB",
+      80: "#FCFCFC",
       100: "#464A4D",
     },
     VIOLET: {
@@ -20,7 +20,7 @@ const ThemeColors: AppColors = {
       40: "#161719",
       60: "#B18AFF",
       80: "#8F57FF",
-      100: "#D3BDFF",
+      100: "#7F3DFF",
     },
     RED: {
       20: "#FDD5D7",
