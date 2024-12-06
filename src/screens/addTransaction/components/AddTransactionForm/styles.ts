@@ -4,13 +4,7 @@ import { Colors } from "theme/types";
 
 export default (colors: Colors) =>
   StyleSheet.create({
-    container: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginTop: vs(20),
-    },
-    viewAll: {
+    card: {
       marginTop: vs(20),
     },
   });

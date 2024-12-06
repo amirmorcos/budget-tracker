@@ -10,7 +10,7 @@ const Button = ({
   title,
   overrideContainerStyle,
   overrideTextStyle,
-  type,
+  type = "rounded",
 }: ButtonProps) => {
   const { currentTheme } = useThemeContext();
   const themedStyles = styles(currentTheme);
@@ -21,6 +21,7 @@ const Button = ({
         themedStyles.container,
         overrideContainerStyle,
         type === "border" && themedStyles.borderedButton,
+        type === "normal" && themedStyles.normal,
       ]}
     >
       <AppText
@@ -29,6 +30,7 @@ const Button = ({
           themedStyles.title,
           overrideTextStyle,
           type === "border" && themedStyles.borderedTitle,
+          type === "normal" && themedStyles.normalText,
         ]}
       />
     </TouchableOpacity>
