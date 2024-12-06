@@ -7,6 +7,7 @@ export type MainStackParams = {
   HomeStack: undefined;
   TransactionStack: undefined;
   ProfileStack: undefined;
+  Categories: undefined;
 };
 export type HomeStackParams = {
   Home: undefined;

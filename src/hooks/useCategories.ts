@@ -4,21 +4,61 @@ import { useTransactions } from "./useTransaction";
 export const useCategories = () => {
   const { transactions, isLoading } = useTransactions();
 
-  const transportationLength = transactions.filter(
+  const filteredTransportation = transactions.filter(
     (item) => item.category === TransactionType.TRANSPORTATION
-  ).length;
-  const salaryLength = transactions.filter(
+  );
+
+  const transportationLength = filteredTransportation.length;
+
+  const transportationExpenses = filteredTransportation.reduce(
+    (oldItem, newItem) => {
+      return oldItem + newItem.amount;
+    },
+    0
+  );
+
+  const filteredSalary = transactions.filter(
     (item) => item.category === TransactionType.SALARY
-  ).length;
-  const foodLength = transactions.filter(
+  );
+
+  const salaryLength = filteredSalary.length;
+
+  const salaryExpenses = filteredSalary.reduce((oldItem, newItem) => {
+    return oldItem + newItem.amount;
+  }, 0);
+
+  const filteredFood = transactions.filter(
     (item) => item.category === TransactionType.FOOD
-  ).length;
-  const subscriptionLength = transactions.filter(
+  );
+
+  const foodLength = filteredFood.length;
+
+  const foodExpenses = filteredFood.reduce((oldItem, newItem) => {
+    return oldItem + newItem.amount;
+  }, 0);
+
+  const filteredSubscription = transactions.filter(
     (item) => item.category === TransactionType.SUBSCRIPTION
-  ).length;
-  const shoppingLength = transactions.filter(
+  );
+
+  const subscriptionLength = filteredSubscription.length;
+
+  const subscriptionExpenses = filteredSubscription.reduce(
+    (oldItem, newItem) => {
+      return oldItem + newItem.amount;
+    },
+    0
+  );
+
+  const filteredShopping = transactions.filter(
     (item) => item.category === TransactionType.SHOPPING
-  ).length;
+  );
+
+  const shoppingLength = filteredSubscription.length;
+
+  const shoppingExpenses = filteredSubscription.reduce((oldItem, newItem) => {
+    return oldItem + newItem.amount;
+  }, 0);
 
   return {
     transportationLength,
@@ -27,5 +67,10 @@ export const useCategories = () => {
     subscriptionLength,
     shoppingLength,
     isLoading,
+    transportationExpenses,
+    foodExpenses,
+    salaryExpenses,
+    subscriptionExpenses,
+    shoppingExpenses,
   };
 };

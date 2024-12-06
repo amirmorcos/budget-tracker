@@ -1,14 +1,20 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeIcon, TransactionsIcon, UserIcon } from "assets/images/svg";
+import {
+  HomeIcon,
+  ShoppingIcon,
+  TransactionsIcon,
+  UserIcon,
+} from "assets/images/svg";
 import { SelectedTheme, useThemeContext } from "contexts/Theme";
 import React from "react";
+import { hasNotch } from "react-native-device-info";
+import { vs } from "react-native-size-matters/extend";
+import appFonts from "theme/fonts";
 import HomeNavigation from "./HomeNavigation";
 import ProfileNavigation from "./ProfileNavigation";
 import TransactionNavigation from "./TransactionNavigation";
 import { MainStackParams } from "./types";
-import appFonts from "theme/fonts";
-import { vs } from "react-native-size-matters/extend";
-import { hasNotch } from "react-native-device-info";
+import { CategoriesScreen } from "screens/index";
 
 const Tab = createBottomTabNavigator<MainStackParams>();
 
@@ -52,6 +58,15 @@ const BottomTabs = () => {
         }}
         name="TransactionStack"
         component={TransactionNavigation}
+      />
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <ShoppingIcon fontSize={size} fill={color} />
+          ),
+        }}
+        name="Categories"
+        component={CategoriesScreen}
       />
       <Tab.Screen
         name="ProfileStack"
