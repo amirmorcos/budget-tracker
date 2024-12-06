@@ -21,7 +21,7 @@ const NavigationHeader = ({ title, color }: NavigationHeaderProps) => {
           />
         </View>
         <AppText
-          overrideTextStyle={{ color: color }}
+          overrideTextStyle={{ color: color ?? currentTheme.DARK[75] }}
           fontFamily="semiBold"
           fontSize="title3"
           text={title}

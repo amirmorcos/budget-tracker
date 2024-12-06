@@ -27,7 +27,7 @@ const TransactionsScreen = () => {
   return (
     <ScreenLayout>
       <TouchableOpacity style={themedStyles.filter} onPress={onFilterPress}>
-        <FilterIcon />
+        <FilterIcon fill={currentTheme.DARK[100]} />
       </TouchableOpacity>
       <AppText text="Today" />
       <TransactionItem

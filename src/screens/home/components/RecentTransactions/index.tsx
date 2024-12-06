@@ -1,11 +1,10 @@
-import AppText from "atoms/AppText";
 import { useThemeContext } from "contexts/Theme";
 import React from "react";
 import { View } from "react-native";
 import styles from "./styles";
-import { Button } from "atoms/index";
 import { RecentTransactionsProps } from "./types";
 import TransactionItem from "molecules/TransactionItem";
+import { SectionHeader } from "molecules/index";
 
 const RecentTransactions = ({ onPress }: RecentTransactionsProps) => {
   const { currentTheme } = useThemeContext();
@@ -13,10 +12,13 @@ const RecentTransactions = ({ onPress }: RecentTransactionsProps) => {
 
   return (
     <View>
-      <View style={themedStyles.container}>
-        <AppText text="Recent Transactions" fontSize="title3" />
-        <Button onPress={onPress} title="See All" />
-      </View>
+      <SectionHeader
+        title="Recent Transactions"
+        buttonTitle="See All"
+        onPress={onPress}
+        overrideContainerStyle={themedStyles.viewAll}
+      />
+
       <TransactionItem
         overrideContainerStyle={{
           marginTop: 10,

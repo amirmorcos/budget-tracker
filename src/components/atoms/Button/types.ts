@@ -5,5 +5,7 @@ export type ButtonProps = {
   onPress: () => void;
   overrideContainerStyle?: StyleProp<ViewStyle>;
   overrideTextStyle?: StyleProp<TextStyle>;
-  type?: "border" | "normal";
+  type?: "border" | "normal" | "rounded";
+  disabled?: boolean;
+  isLoading?: boolean;
 };

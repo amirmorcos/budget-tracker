@@ -7,9 +7,12 @@ import {
 import React, { forwardRef } from "react";
 import styles from "./styles";
 import { BottomSheetProps } from "./types";
+import { useThemeContext } from "contexts/Theme";
 
 const BottomSheet = forwardRef<BottomSheetModal, BottomSheetProps>(
   ({ children, overrideContainerStyle }, ref) => {
+    const { currentTheme } = useThemeContext();
+
     const renderBackdrop = React.useCallback(
       (props: BottomSheetBackdropProps) => (
         <BottomSheetBackdrop
@@ -28,6 +31,9 @@ const BottomSheet = forwardRef<BottomSheetModal, BottomSheetProps>(
         backdropComponent={renderBackdrop}
         style={overrideContainerStyle}
         ref={ref}
+        backgroundStyle={{
+          backgroundColor: currentTheme.LIGHT[100],
+        }}
       >
         <BottomSheetScrollView
           style={styles.content}

@@ -12,6 +12,8 @@ import TransportationIcon from "./transportation";
 import ShoppingIcon from "./shopping";
 import FoodIcon from "./food";
 import TransactionsIcon from "./transactions";
+import CloseIcon from "./close";
+import ArrowDown from "./arrowDown";
 
 export {
   HomeIcon,
@@ -28,4 +30,6 @@ export {
   SalaryIcon,
   FoodIcon,
   TransactionsIcon,
+  CloseIcon,
+  ArrowDown,
 };

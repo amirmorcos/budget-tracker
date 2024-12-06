@@ -93,9 +93,10 @@ const TransactionFilter = forwardRef<BottomSheetModal, {}>(({}, ref) => {
 
       <Button
         title="Apply"
+        type="normal"
         overrideTextStyle={themedStyles.applyButtonText}
         onPress={() => {}}
-        overrideContainerStyle={themedStyles.applyButton}
+        // overrideContainerStyle={themedStyles.applyButton}
       />
     </BottomSheet>
   );

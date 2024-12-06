@@ -21,7 +21,7 @@ export default (colors: Colors) =>
       backgroundColor: colors.VIOLET[100],
     },
     applyButtonText: {
-      color: colors.LIGHT[100],
+      color: colors.LIGHT[80],
       ...appFonts.title3,
     },
   });

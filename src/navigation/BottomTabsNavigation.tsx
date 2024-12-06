@@ -5,6 +5,7 @@ import { HomeIcon, TransactionsIcon, UserIcon } from "assets/images/svg";
 import { useThemeContext } from "contexts/Theme";
 import ProfileNavigation from "./ProfileNavigation";
 import TransactionNavigation from "./TransactionNavigation";
+import HomeNavigation from "./HomeNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,12 +20,14 @@ const BottomTabs = () => {
     >
       <Tab.Screen
         options={{
+          tabBarLabel: "Home",
+
           tabBarIcon: ({ color, size }) => (
             <HomeIcon fontSize={size} fill={color} />
           ),
         }}
-        name="Home"
-        component={HomeScreen}
+        name="HomeStack"
+        component={HomeNavigation}
       />
       <Tab.Screen
         options={{
@@ -37,9 +40,10 @@ const BottomTabs = () => {
         component={TransactionNavigation}
       />
       <Tab.Screen
-        name="Profile"
+        name="ProfileStack"
         component={ProfileNavigation}
         options={{
+          tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
             <UserIcon fontSize={size} fill={color} />
           ),
