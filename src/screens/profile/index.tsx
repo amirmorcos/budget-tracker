@@ -42,7 +42,7 @@ const ProfileScreen = () => {
       </View>
 
       <ActionList
-        overrideContainerStyle={{ marginTop: 30 }}
+        overrideContainerStyle={themedStyles.actions}
         items={[
           {
             icon: <SettingsIcon />,
