@@ -33,7 +33,7 @@ const ProfileScreen = () => {
           />
 
           <AppText
-            text="Foodics"
+            text="Amir"
             fontSize="title2"
             fontFamily="semiBold"
             overrideTextStyle={themedStyles.name}
